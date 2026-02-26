@@ -80,7 +80,7 @@ settings.batch_cycles = 30;% Number of batch/coordinate fiting/decent.
 settings.max_iterations = 1*10^2;% Maximum number of itterations per cycle
 
 % Robustness Analysis Settings
-settings.robustness.num_runs = 48;% Set to 1 if you don't want to do robustness analysis.
+settings.robustness.num_runs = 16;% Set to 1 if you don't want to do robustness analysis.
 settings.robustness.perturbation = 0.2;
 
 settings % Display settings
@@ -253,7 +253,7 @@ end
 % --- START PARALLEL LOOP ---
 %parfor% Use when many runs. Since this enables runs to be done in parallel.
 %for% Use for few runs since this enables the actuall fitting to be multi-core. Or when you don't have the parallel proccecing package.
-for run_idx = 1:total_runs%Using parfor to multithread
+parfor run_idx = 1:total_runs%Using parfor to multithread
     
     % Note: fprintf inside parfor may not appear in order in the command window
     % but we print the start to indicate activity.
