@@ -79,4 +79,4 @@ If you need to model a new geometry (e.g., a 5-Chamber model), follow these step
 
 ### Contact
 
-If you have any question want some help. You can contact me on Linkedin: https://www.linkedin.com/in/tim-heiszwolf/
+If you have any question or want some help. You can contact me on Linkedin: https://www.linkedin.com/in/tim-heiszwolf/
