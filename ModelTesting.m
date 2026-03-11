@@ -57,14 +57,6 @@ inspectData(data, settings, 2);% 0:None, 1:Time domain, 2: frequency response, 3
 
 %% Do the comparision
 %try
-    %inspectEstimation(sys_ssest, data, settings, "SSEST")
-    %disp("SSEST:")
-    %fit_report = sys_ssest.Report;
-    %printSSESTFitInfo(sys_ssest, 2)
-    %printSSESTFitInfo(sys_ssest, 1)
-%end
-
-%try
     %inspectFrequencyResponse(data, settings.LPM_data, sys_grey)% TODO FIND BETTER PLACE
     inspectFrequencyResponse(data, [], sys_grey, "Model only");
     inspectEstimation(sys_grey, data, settings, "Grey")
@@ -82,30 +74,6 @@ sys_ss = idss(sys_grey);
 set(sys_ss, 'C', C);
 inspectEstimation(sys_ss, data, settings, "Grey")
 %}
-
-
-%{
-all_param_names = {sys_grey.Structure.Parameters.Name};
-batch1.data = data;
-params_b1 = {'C1', 'C2', 'C3', 'C4'};
-batch1.params_to_fit = params_b1(ismember(params_b1, all_param_names)); % Only use params that exist
-batch1.iterations = settings.max_iterations;
-batch1.max_cycle = 50;
-batch_strategy = {batch1};
-
-settings.verbose = 3;
-settings.batch_cycles = 20;        
-settings.max_iterations = 1*10^2
-
-sys_init = idgrey(sys_grey)
-[sys_grey_test, history] = fitGreyboxInBatches(sys_init, batch_strategy, settings);
-inspectEstimation(sys_grey_test, data, settings, "Grey")
-%}
-
-
-%inspectEstimation(sys_ssest_free, data, settings, "SSEST fully free")
-
-%inspectEstimation(sys_N4SID, data, settings, "N4SID")
 
 %% --- Benchmark Models ---
 % We train these on the training_data.

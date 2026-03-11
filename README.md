@@ -76,3 +76,7 @@ If you need to model a new geometry (e.g., a 5-Chamber model), follow these step
 3. **Update State-Space Matrices**: Modify the `getAMatrix`, `getBMatrix`, `getCMatrix`, and `getDMatrix` functions. Ensure the matrix dimensions match your new state count (e.g., 5x5 for the A matrix).
 4. **Update `preProccesData`**: If your new model requires a different diagnostic as an output, map that signal from the `raw_data` to the `allignedData` array. 
 5. **Implement**: In `Fitting.m`, simply change the initialization to `settings.chamber_model = FiveChamberModel();`.
+
+### Contact
+
+If you have any question want some help. You can contact me on Linkedin: https://www.linkedin.com/in/tim-heiszwolf/

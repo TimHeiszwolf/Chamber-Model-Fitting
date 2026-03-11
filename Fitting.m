@@ -52,7 +52,7 @@ settings.chamber_model = FourChamberModelUniversal();
 
 % --- Data Processing Settings ---
 settings.save_data = true; % Set to 'true' to save all results
-settings.save_data_folder_prefix = '1061aRobust'; % Prefix for results folder
+settings.save_data_folder_prefix = '11061aRobust'; % Prefix for results folder
 settings.inspect_data = 3; % 0:None, 1:Time domain, 2: frequency response, 3:Corr/SPA, 4:Full LPM, 5:Hankel
                            
 settings.validation_split = 1 - 1; % Fraction of data used for VALIDATION.
@@ -72,7 +72,7 @@ settings.sample_time = 2.5e-3;% The new sample time for the data. In general sho
 % --- Fitting settings ---
 settings.verbose = 4;%2: MSE/Loss plot, 3: +Parameter evolution plot, 4: +Fitting time plot
 
-settings.search_method = 'auto'; % Optimization algorithm
+settings.search_method = 'gna'; % Optimization algorithm or "auto"
 settings.step_size = 5;
 settings.output_weight = settings.chamber_model.output_weight;%diag([1, 1, 5, 1]);% How much weight each output has. Can be "noise", can also be diag([1, 1, 5, 1]); (third channel has 20 times more weight). Or an empty array [] if you want it all equally.
 
